@@ -4,34 +4,34 @@
         "name": "Product 1",
         "price": 29.99,
         "image": "assets/img/shoes-1.jpg",
-        "link": "product1.html"
+        "description": "High-quality shoes perfect for everyday wear."
     },
     {
         "id": 2,
         "name": "Product 2",
         "price": 39.99,
         "image": "assets/img/shoes-2.jpg",
-        "link": "product2.html"
+        "description": "Comfortable and stylish shoes for all occasions."
     },
     {
         "id": 3,
         "name": "Product 3",
         "price": 49.99,
         "image": "assets/img/shoes-3.jpg",
-        "link": "product3.html"
+        "description": "Durable shoes with excellent grip and support."
     },
     {
         "id": 4,
         "name": "Product 4",
         "price": 19.99,
         "image": "assets/img/shoes-4.jpg",
-        "link": "product4.html"
+        "description": "Affordable shoes without compromising on quality."
     },
     {
         "id": 5,
         "name": "Product 5",
         "price": 59.99,
         "image": "assets/img/shoes-5.jpg",
-        "link": "product5.html"
+        "description": "Premium shoes with superior craftsmanship."
     }
 ]
