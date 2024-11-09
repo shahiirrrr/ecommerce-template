@@ -19,8 +19,8 @@ function loadProducts() {
                 productCard.innerHTML = `
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     <h3>${product.name}</h3>
-                    <p>$${product.price}</p>
-                    <a href="${product.link}" class="btn-primary">View Product</a>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <a href="product.html?id=${product.id}" class="btn-primary">View Details</a>
                 `;
 
                 productGrid.appendChild(productCard);  // Add the product card to the grid
@@ -31,3 +31,6 @@ function loadProducts() {
 
 // Call the loadProducts function when the page loads
 window.onload = loadProducts;
+
+
+

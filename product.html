@@ -30,13 +30,12 @@
 
     <main>
         <div class="product-detail">
-            <img src="assets/img/sample-product.jpg" alt="Sample Product">
+            <img id="productImage" src="" alt="Product Image">
             <div class="product-info">
-                <h2>Product 1</h2>
-                <p class="price">$29.99</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut magna nec libero vehicula cursus.
-                </p>
-                <button>Add to Cart</button>
+                <h2 id="productName">Product Name</h2>
+                <p class="price" id="productPrice">$0.00</p>
+                <p id="productDescription">Product Description</p>
+                <button id="addToCartBtn">Add to Cart</button>
             </div>
         </div>
     </main>
@@ -79,6 +78,44 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        // Function to get query parameters
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Function to fetch and display product details
+function loadProductDetails() {
+    const productId = getQueryParam('id');
+    if (!productId) {
+        console.error('No product ID found in URL');
+        return;
+    }
+
+    fetch('products.json')
+        .then(response => response.json())
+        .then(products => {
+            const product = products.find(p => p.id == productId);
+            if (product) {
+                document.getElementById('productImage').src = product.image;
+                document.getElementById('productImage').alt = product.name;
+                document.getElementById('productName').textContent = product.name;
+                document.getElementById('productPrice').textContent = `$${product.price.toFixed(2)}`;
+                document.getElementById('productDescription').textContent = product.description;
+            } else {
+                console.error('Product not found');
+                // Optionally, display a "Product not found" message on the page
+                document.querySelector('.product-detail').innerHTML = '<p>Product not found.</p>';
+            }
+        })
+        .catch(error => console.error('Error fetching product details:', error));
+}
+
+// Call the loadProductDetails function when the page loads
+window.onload = loadProductDetails;
+
+    </script>
 </body>
 
 </html>
